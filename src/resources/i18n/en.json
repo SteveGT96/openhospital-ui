@@ -67,6 +67,21 @@
     "updatesuccess": "Opd {{code}} has been updated successfully!",
     "deleted": "Opd deleted"
   },
+  "visit": {
+    "date": "Date (d/m/y)",
+    "note": "Notes and symptoms",
+    "duration": "Duration",
+    "ward": "Ward",
+    "service": "Service",
+    "visitID": "ID",
+    "updatevisit": "Update Visit",
+    "savevisit": "Save Visit",
+    "created": "Visit created",
+    "updated": "Visit updated",
+    "createsuccess": "Visit has been created successfully!",
+    "updatesuccess": "Visit {{code}} has been updated successfully!",
+    "deleted": "Visit deleted"
+  },
   "examination": {
     "ap": {
       "max": "max",
@@ -134,7 +149,8 @@
     "searchbill": "Search facture",
     "bill_chose": "Choose an option",
     "managebills": "Manage Bills",
-    "billrecords": "Bill Records"
+    "billrecords": "Bill Records",
+    "visits": "Visits"
   },
   "common": {
     "ok": "OK",

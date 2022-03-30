@@ -43,6 +43,7 @@ import { renderDate } from "../../../libraries/formatUtils/dataFormatting";
 import InPatientDashboardMenu from "./InPatientDashboardMenu";
 import { PatientDTOStatusEnum } from "../../../generated";
 import OutPatientDashboardMenu from "./OutPatientDashboardMenu";
+import PatientVisit from "../../accessories/patientVisit/patientVisit";
 
 const PatientDetailsActivity: FunctionComponent<TProps> = ({
   userCredentials,
@@ -99,13 +100,6 @@ const PatientDetailsActivity: FunctionComponent<TProps> = ({
           content={SkeletonLoader}
         />
       ),
-    },
-  ];
-  const opdConfig: TTabConfig = [
-    {
-      label: t("nav.opd"),
-      path: "/OPD",
-      content: <PatientDetailsContent title="OPD" content={PatientOPD} />,
     },
   ];
   const triageConfig: TTabConfig = [
@@ -181,8 +175,6 @@ const PatientDetailsActivity: FunctionComponent<TProps> = ({
     switch (userSection) {
       case "admissions":
         return admissionsConfig;
-      case "opd":
-        return opdConfig;
       case "triage":
         return triageConfig;
       case "therapy":
@@ -452,12 +444,28 @@ const PatientDetailsActivity: FunctionComponent<TProps> = ({
                 </div>
                 <div className="patientDetails__content">
                   {userSection == "laboratory" ? (
-                    <div className="patientDetails__lab_content">
+                    <div className="patientDetails__section_content">
                       <PatientDetailsContent
                         title="Laboratory"
                         content={PatientExams}
                       />
                     </div>
+                  ) : userSection === "visits" ? (
+                    patient?.data?.status === PatientDTOStatusEnum.O ? (
+                      <div className="patientDetails__section_content">
+                        <PatientDetailsContent
+                          title="Visits"
+                          content={PatientOPD}
+                        />
+                      </div>
+                    ) : (
+                      <div className="patientDetails__section_content">
+                        <PatientDetailsContent
+                          title="Visits"
+                          content={PatientVisit}
+                        />
+                      </div>
+                    )
                   ) : (
                     <RouterTabs
                       config={getRouteConfig()}
