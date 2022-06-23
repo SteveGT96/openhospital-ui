@@ -30,7 +30,7 @@ import operations from "./state/operations/reducer";
 import diseaseTypes from "./state/diseaseTypes/reducer";
 
 if (process.env.NODE_ENV === "development") {
-  makeServer();
+  //makeServer();
 }
 
 const reducer = combineReducers<IState>({
