@@ -130,11 +130,11 @@ export const searchOpds =
         newPatient: query.newPatient,
         dateTo: query.dateTo ?? moment().toISOString(),
         dateFrom: query.dateFrom ?? moment().toISOString(),
-        ageFrom: query.ageFrom,
-        ageTo: query.ageTo,
+        ageFrom: isNaN(query.ageFrom) ? null : query.ageFrom,
+        ageTo: isNaN(query.ageTo) ? null : query.ageTo,
         diseaseCode: query.diseaseCode,
         diseaseTypeCode: query.diseaseTypeCode,
-        patientCode: query.patientCode,
+        patientCode: isNaN(query.patientCode) ? null : query.patientCode,
       })
       .subscribe(
         (payload) => {

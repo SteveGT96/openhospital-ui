@@ -15,7 +15,7 @@ import { Observable, of, Subscriber } from 'rxjs';
 import { ajax, AjaxRequest, AjaxResponse } from 'rxjs/ajax';
 import { map, concatMap } from 'rxjs/operators';
 
-export const BASE_PATH = 'http://192.168.8.104:8080/oh-api'.replace(/\/+$/, '');
+export const BASE_PATH = 'http://192.168.8.107:8080/oh-api'.replace(/\/+$/, '');
 
 export interface ConfigurationParameters {
     basePath?: string; // override base path

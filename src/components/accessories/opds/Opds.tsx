@@ -21,6 +21,7 @@ import {
 } from "../../../state/opds/actions";
 import isEmpty from "lodash.isempty";
 import { TFilterValues } from "../billTable/types";
+import { getFromFields } from "../../../libraries/formDataHandling/functions";
 
 export const Opds: FC = () => {
   const fields = initialFilterFields;
@@ -41,12 +42,12 @@ export const Opds: FC = () => {
   };
 
   const errorMessage = useSelector(
-    (state: IState) => state.opds.searchOpds.error
+    (state: IState) => state.opds.searchOpds.error?.message
   );
   let status = useSelector((state: IState) => state.opds.searchOpds.status);
 
   useEffect(() => {
-    dispatch(searchOpds(fields));
+    dispatch(searchOpds(getFromFields(fields, "value")));
     dispatch(getDiseasesOpd());
     dispatch(getDiseaseTypes());
   }, []);
