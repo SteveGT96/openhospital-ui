@@ -53,7 +53,8 @@
     "search": "Search",
     "agetype": "Age Type",
     "agerange": "Age Range",
-    "age": "Age"
+    "age": "Age",
+    "dashboard": "Patient Dashboard"
   },
   "opd": {
     "newopd": "Create new OPD Visit",
