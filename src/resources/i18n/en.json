@@ -317,7 +317,17 @@
     "lessthan": "The value must not exceed {{value}}.",
     "confirm": "Confirm",
     "invaliddate": "Invalid Date",
-    "outofrange": "Out of range"
+    "outofrange": "Out of range",
+    "period": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "thisweek": "This Week",
+      "lastweek": "Last Week",
+      "thismonth": "This Month",
+      "lastmonth": "Last Month",
+      "thisyear": "This Year",
+      "lastyear": "Last Year"
+    }
   },
   "therapy": {
     "newtherapy": "New Therapy",
