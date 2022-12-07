@@ -24,6 +24,11 @@ import {
   GET_ADMISSIONS_FAIL,
   GET_ADMISSIONS_LOADING,
   GET_ADMISSIONS_SUCCESS,
+  GET_ONGOING_ADMISSIONS_FAIL,
+  GET_ONGOING_ADMISSIONS_LOADING,
+  GET_ONGOING_ADMISSIONS_SUCCESS,
+  GET_ONGOING_ADMISSIONS_SUCCESS_EMPTY,
+  GET_ADMISSIONS_SUCCESS_EMPTY,
 } from "./consts";
 import { initial } from "./initial";
 import { IAdmissionsState } from "./types";
@@ -125,7 +130,7 @@ export default produce((draft: IAdmissionsState, action: IAction<any, any>) => {
       break;
     }
 
-    case GET_ADMISSION_SUCCESS_EMPTY: {
+    case GET_ADMISSIONS_SUCCESS_EMPTY: {
       draft.getAdmissions.status = "SUCCESS_EMPTY";
       draft.getAdmissions.data = [];
       delete draft.getAdmissions.error;
@@ -134,6 +139,33 @@ export default produce((draft: IAdmissionsState, action: IAction<any, any>) => {
     case GET_ADMISSIONS_FAIL: {
       draft.getAdmissions.status = "FAIL";
       draft.getAdmissions.error = action.error;
+      break;
+    }
+
+    /**
+     * GET_ONGOING_ADMISSIONS
+     */
+    case GET_ONGOING_ADMISSIONS_LOADING: {
+      draft.getOngoingAdmissions.status = "LOADING";
+      break;
+    }
+
+    case GET_ONGOING_ADMISSIONS_SUCCESS: {
+      draft.getOngoingAdmissions.status = "SUCCESS";
+      draft.getOngoingAdmissions.data = action.payload;
+      delete draft.getOngoingAdmissions.error;
+      break;
+    }
+
+    case GET_ONGOING_ADMISSIONS_SUCCESS_EMPTY: {
+      draft.getOngoingAdmissions.status = "SUCCESS_EMPTY";
+      draft.getOngoingAdmissions.data = [];
+      delete draft.getOngoingAdmissions.error;
+      break;
+    }
+    case GET_ONGOING_ADMISSIONS_FAIL: {
+      draft.getOngoingAdmissions.status = "FAIL";
+      draft.getOngoingAdmissions.error = action.error;
       break;
     }
 
