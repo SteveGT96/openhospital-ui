@@ -36,7 +36,7 @@ export const MainRouter: React.FC = () => {
   )(AdminRoutes);
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={import.meta.env.VITE_PUBLIC_URL}>
       <Routes>
         {/* TODO: based on user profile, redirect to patient, dashboard or whatever */}
         <Route index element={<Navigate to="/patients" replace />} />

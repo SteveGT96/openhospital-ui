@@ -1,5 +1,5 @@
-import XHRAdapter from "@pollyjs/adapter-xhr";
 import { Polly } from "@pollyjs/core";
+import NodeHttpAdapter from "@pollyjs/adapter-node-http";
 import { BASE_PATH } from "../generated/runtime";
 import { authRoutes } from "./routes/auth";
 import { examinationsRoutes } from "./routes/examinations";
@@ -35,12 +35,13 @@ import { pregnantTreatmentTypeRoutes } from "./routes/pregnantTreatmentType";
 import { deliveryResultTypeRoutes } from "./routes/deliveryResultType";
 
 export function makeServer() {
-  Polly.register(XHRAdapter);
+  Polly.register(NodeHttpAdapter);
   const polly = new Polly("api-mocking", {
-    adapters: ["xhr"],
+    adapters: ["node-http"],
     mode: "passthrough",
     logging: true,
   });
+  polly.connectTo("node-http");
   const { server } = polly;
   server.host(BASE_PATH, () => {
     userRoutes(server);

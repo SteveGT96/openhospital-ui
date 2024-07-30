@@ -59,8 +59,9 @@
   "scripts": {
     "transifex:source": "node scripts/transifex/syncSource.js",
     "transifex:files": "node scripts/transifex/syncFiles.js",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "test": "react-scripts test",
     "e2e": "start-server-and-test http://localhost:3000 cypress:open",
     "eject": "react-scripts eject",
@@ -101,8 +102,10 @@
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^1.0.15-4.3.1",
-    "@pollyjs/adapter-xhr": "^5.0.0",
-    "@pollyjs/core": "^5.0.0",
+    "@pollyjs/adapter-fetch": "^6.0.6",
+    "@pollyjs/adapter-node-http": "^6.0.6",
+    "@pollyjs/adapter-xhr": "^6.0.6",
+    "@pollyjs/core": "^6.0.6",
     "@storybook/addon-actions": "^7.6.15",
     "@storybook/addon-essentials": "^7.6.15",
     "@storybook/addon-interactions": "^7.6.15",
@@ -120,7 +123,6 @@
     "@types/jest": "^29.5.12",
     "@types/jquery": "^3.5.14",
     "@types/lodash": "^4.14.202",
-    "@types/module-alias": "^2.0.4",
     "@types/node": "^12.20.55",
     "@types/node-fetch": "^2.5.10",
     "@types/pdfmake": "^0.2.2",
@@ -136,19 +138,17 @@
     "@types/testing-library__jest-dom": "^5.9.5",
     "@types/testing-library__react": "^10.2.0",
     "@types/yup": "^0.29.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
     "cypress": "^13.13.1",
     "cypress-file-upload": "^5.0.8",
     "eslint-plugin-cypress": "^2.15.2",
-    "module-alias": "^2.2.3",
     "prop-types": "^15.8.1",
-    "react-scripts": "^5.0.1",
     "start-server-and-test": "^2.0.3",
     "storybook": "^7.6.15",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "typescript": "^5.2.2",
-    "webpack": "^5.76.0"
-  },
-  "_moduleAliases": {
-    "@": "./dist"
+    "vite": "^5.3.5",
+    "vite-plugin-pwa": "^0.20.1",
+    "vite-tsconfig-paths": "^4.3.2"
   }
 }
