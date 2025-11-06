@@ -1,4 +1,5 @@
 import { standardSchemaResolver } from "@hookform/resolvers/standard-schema";
+import Button from "components/accessories/button/Button";
 import {
   AutocompleteFormField,
   DateFormField,
@@ -97,6 +98,23 @@ export function ChargeMovementForm({
         {values.medical && (
           <LotFormField medical={values.medical} control={control} />
         )}
+        <div className="flex gap-2 justify-end col-span-full p-2">
+          <Button
+            type="reset"
+            variant="text"
+            disabled={formState.isSubmitting}
+            dataCy="charge-movement-cancel"
+          >
+            {t("common.close")}
+          </Button>
+          <Button
+            type="submit"
+            disabled={formState.isSubmitting}
+            dataCy="charge-movement-submit"
+          >
+            {t("pharmacy.buttons.charge")}
+          </Button>
+        </div>
       </form>
     </div>
   );
